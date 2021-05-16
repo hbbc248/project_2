@@ -44,36 +44,4 @@ Review.belongsTo(User, {
     foreignKey: "user_id",
 });
 
-// associations between User and Business through review
-
-User.belongsToMany(Business, {
-    through: Review,
-    as: "reviews",
-    foreignKey: "user_id"
-});
-
-Business.belongsToMany(User, {
-    through: Review,
-    as: "reviewer",
-    foreignKey: "business_id"
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = { User, Contact, Business };
