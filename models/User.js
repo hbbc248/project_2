@@ -31,7 +31,7 @@ User.init(
       },
     },
     username: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(20),
       allowNull: false,
       unique: true,
     },
