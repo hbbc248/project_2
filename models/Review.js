@@ -12,7 +12,7 @@ Review.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        start_reting: {
+        star_rating: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -20,7 +20,7 @@ Review.init(
                 min: 1,
             },
         },
-        Review_text: {
+        review_text: {
             type: DataTypes.STRING,
             allowNull: false,
         },

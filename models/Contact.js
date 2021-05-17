@@ -12,7 +12,7 @@ Contact.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        first_name: {
             type: DataTypes.STRING(30),
             allowNull: false,
         },
@@ -23,17 +23,16 @@ Contact.init(
         email: {
             type: DataTypes.STRING(50),
             allowNull: true,
-            unique: true,
             validate: {
               isEmail: true,
             },
             defaultValue: "No email provided",
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING(15),
             allowNull: false,
             validate: {
-                isNumeric: true,
+                len: [7],
             },
         },
         address: {

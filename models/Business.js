@@ -30,10 +30,10 @@ Business.init(
             defaultValue: "No email provided",
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING(15),
             allowNull: false,
             validate: {
-                isNumeric: true,
+                len: [7],
             },
         },
         address: {
