@@ -24,25 +24,22 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
+          <a class="nav-link" href="/dashboard">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Rating</a>
+          <a class="nav-link" href="/ratingbusiness">Rating</a>
         </li>
       </ul>
       {{else}}
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Log In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sign-Up</a>
+          <a class="nav-link" href="/login">Log In / Sign Up</a>
         </li>
       </ul>
     </div>
@@ -51,7 +48,7 @@
 </header>
 
 <body>
-  {{{>homepage business-homepage-list}}}
+  {{{> homepage business-homepage-list}}}
 </body>
 
 </html>
