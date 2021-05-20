@@ -2,6 +2,16 @@
   <div class="row">
     <h2>Business Contact Directory </h2>
   </div>
+  
+  <div class="row gutters-sm align-items-center">
+  {{#each businesses as |business|}}
+    {{>businesscontact business}}
+  {{/each}}
+  </div>
+   
+  
+
+  <!--
   <div class="row">
       {{#each businesses}}
       <div class="col-12 col-md-6 col-xl-4 mt-4">
@@ -26,5 +36,5 @@
       </div>
       {{/each}}
   </div>  
-</div>
+</div> -->
 
