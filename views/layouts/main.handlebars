@@ -23,16 +23,16 @@
     {{#if loggedIn}}
      <img class="logo" src="/stylesheets/Gray Cardiology Logo (2).png" alt="CallMeMaybe" width="300"
          height="80">
-        <a  href="/">Home</a>
-        <a  href="/dashboard">Dashboard</a>
-        <a  href="/ratingbusiness">Rating</a>
         <a  id="logout">Log Out</button>
+        <a  href="/ratingbusiness">Rating</a>
+        <a  href="/dashboard">Dashboard</a>
+        <a  href="/">Home</a>
+       
     {{else}}
         <img class="logo" src="/stylesheets/Gray Cardiology Logo (2).png" alt="CallMeMaybe" width="300"
          height="90">
+        <a  href="/login">Log In / Sign Up</a>
         <a href="/">Home </a>
-        <a  href="/login">Log In</a>
-        <a  href="/signup">Sign Up</a>
     {{/if}}
   </nav>
 </header>
@@ -42,7 +42,7 @@
 
 
 {{#if loggedIn}}
-<script src="javascript/logout.js"></script>
+<script src="/javascript/logout.js"></script>
 {{/if}}
 </body>
 </html>

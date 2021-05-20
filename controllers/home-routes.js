@@ -26,10 +26,10 @@ router.get('/', (req, res) => {
             },
         ],
     }).then(dbBusinessData => {
-        const Business = dbBusinessData.map(post => post.get({ plain: true }));
-
+        const businesses = dbBusinessData.map(business => business.get({ plain: true }));
+        console.log(businesses);
         res.render('homepage', {
-            Business,
+            businesses,
             loggedIn: req.session.loggedIn
         })
     }).catch(err => {
