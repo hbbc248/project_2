@@ -9,9 +9,8 @@
 
 body{
     margin-top:20px;
-    color: #1a202c;
-    text-align: left;
-    background-color: #e2e8f0;    
+    text-align: center;
+    background-image: url('background.jpg');
 }
 .main-body {
     padding: 15px;
@@ -59,4 +58,57 @@ body{
 }
 .shadow-none {
     box-shadow: none!important;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: transparent;
+    overflow: hidden;
+    margin-right: 20px; 
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    position: relative;
+    color: black;
+    text-align: center;
+    font-size: 17px;
+    top: 120px;
+    width: 15%; 
+    font-family: 'Tenor Sans', sans-serif;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: white;
+    color:turquoise;
+  }
+
+.logo {
+    margin-left: 20px; 
+}
+
+body h2 {
+font-family: 'Pacifico', cursive;
+margin-left: 20px; 
+}
+
+.list-group-item.active {
+    background-color: white;
+    
+}
+
+.login-form {
+    display: inline-block;
+    font-family: 'Tenor Sans', sans-serif;
+    margin-left: 45%;
+    margin-right:50%;
+}
+
+.signup-form {
+    display: inline-block;
+    font-family: 'Tenor Sans', sans-serif;
+    margin-left: 45%;
+    margin-right:50%;
 }
