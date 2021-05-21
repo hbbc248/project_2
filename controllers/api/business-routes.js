@@ -19,7 +19,6 @@ router.get("/", (req, res) => {
         {
             model: Review,
             attributes: ["id", "star_rating", "review_text", "business_id", "user_id", "created_at"],
-            order: [["created_at", "DESC"]],
             include: {
                 model: User,
                 attributes: ["username"],
@@ -43,7 +42,6 @@ router.get("/:id", (req, res) => {
         attributes: ["id", "name", "type", "email", "phone", "address", "webpage", "linkedin", "user_id",
         [sequelize.literal('(SELECT ROUND(AVG(star_rating),2) FROM review WHERE business.id = review.business_id)'), 'star_rating_avg']
         ],
-        order: ["name"],
         include: [
         // include the  model here:
         {
@@ -53,12 +51,14 @@ router.get("/:id", (req, res) => {
         {
             model: Review,
             attributes: ["id", "star_rating", "review_text", "business_id", "user_id", "created_at"],
-            order: [["created_at", "DESC"]],
             include: {
                 model: User,
                 attributes: ["username"],
             },
         },
+        ],
+        order: [
+        [Review, "created_at", "DESC"]
         ],
     })
     .then((dbBusinessData) => {

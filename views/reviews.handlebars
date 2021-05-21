@@ -11,7 +11,7 @@
   <p class="text-secondary mb-1">Phone #: {{businessData.phone}}</p>
   <p class="text-secondary mb-1">Email: <a href="mailto:{{businessData.email}}">{{businessData.email}}</a></p>
   <h5>Rating: <span class="badge bg-secondary">{{businessData.star_rating_avg}} / 5</span></h5>
-
+  <p hidden id="user">{{loggedIn}}</p>
   <ul class="list-group list-group-flush">
     {{#each businessData.reviews as |review|}}
       {{>review review}}
@@ -38,39 +38,6 @@
   <script src="/javascript/review.js"></script>
   {{/if}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
-  <!-- <div class="row gutters-sm align-items-center">
-  {{#each userData.businesses as |business|}}
-    {{>businesscontact business}}
-  {{/each}}
-  </div>
-
-  <div class="row">
-    <h2>Personal Contact Directory</h2>
-  </div>
-  
-  <div class="row gutters-sm align-items-center">
-  {{#each userData.contacts as |contact|}}
-    {{>personalcontact contact}}
-  {{/each}} -->
-  </div>
+</div>
    

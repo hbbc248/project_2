@@ -22,12 +22,14 @@ router.get('/:id', (req, res) => {
         {
             model: Review,
             attributes: ["id", "star_rating", "review_text", "business_id", "user_id", "created_at"],
-            order: [["created_at", "DESC"]],
             include: {
                 model: User,
                 attributes: ["username"],
             },
         },
+        ],
+        order: [
+          [Review, "created_at", "DESC"]
         ],
     })
   .then(dbBusinessData => {

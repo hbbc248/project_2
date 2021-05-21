@@ -25,7 +25,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// GET all reviews including Bussiness name and Username of creator
+// GET all reviews by id including business name and Username of creator
 router.get("/:id", (req, res) => {
   Review.findOne({
     where: {
