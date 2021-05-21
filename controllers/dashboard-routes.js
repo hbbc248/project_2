@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { Business, Contact, Review, User } = require("../models");
+const { Op } = require("sequelize");
 const session = require('express-session');
 
 // get all posts for dashboard
@@ -39,8 +40,6 @@ router.get('/', withAuth, (req, res) => {
   })
   .then(dbUserData => {
     const userData = dbUserData.get({ plain: true });
-    console.log(userData);
-    
     res.render('dashboard', 
     { userData, loggedIn: req.session.user_id });
   })
@@ -86,6 +85,60 @@ router.get('/createbusinesscontact', (req, res) => {
     });
 });
 
+
+router.get('/edit-bussiness/:id', (req, res) => {
+  console.log(req.session);
+  console.log('======================');
+  Business.findOne({
+      where: {
+        [Op.and]: [
+          { id: req.params.id },
+          { user_id: req.session.user_id }
+        ] 
+      },
+      attributes: ["id", "name", "type", "email", "phone", "address", "webpage", "linkedin", "user_id",
+      [sequelize.literal('(SELECT ROUND(AVG(star_rating),2) FROM review WHERE business.id = review.business_id)'), 'star_rating_avg']
+      ],
+      order: ["name"],
+      include: [
+      // include the  model here:
+      {
+          model: User,
+          attributes: ["username"],
+      },
+      {
+          model: Review,
+          attributes: ["id", "star_rating", "review_text", "business_id", "user_id", "created_at"],
+          include: {
+              model: User,
+              attributes: ["username"],
+          },
+      },
+      ],
+      order: [
+        [Review, "created_at", "DESC"]
+      ],
+  })
+  .then(dbBusinessData => {
+    if (!dbBusinessData) {
+      res.status(404).json({ message: "Business does not belong to the user signed in" });
+      return;
+    }
+    const businessData = dbBusinessData.get({ plain: true });
+
+    console.log(businessData);
+    
+    res.render('business-update', 
+    { businessData, loggedIn: req.session.user_id });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+
+
   
 
-  module.exports = router;
+module.exports = router;

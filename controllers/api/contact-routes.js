@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const { User, Contact } = require("../../models");
+const withAuth = require('../../utils/auth');
 
 
 // GET all contacts including username of creator
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
     Contact.findAll({
         attributes: ["id", "first_name", "last_name", "email", "phone", "address", "instagram", "facebook", "tiktok", "youtube", "user_id"],
         order: ["first_name"],
@@ -23,7 +24,7 @@ router.get("/", (req, res) => {
 });
 
 // GET on contact by ID
-router.get("/:id", (req, res) => {
+router.get("/:id", withAuth, (req, res) => {
     Contact.findOne({
         where: {
             id: req.params.id,
@@ -53,7 +54,7 @@ router.get("/:id", (req, res) => {
 
 
 // POST contact
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
     Contact.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -75,7 +76,7 @@ router.post("/", (req, res) => {
 });
 
 // PUT contact
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   Contact.update(
     {
       first_name: req.body.first_name,
@@ -109,7 +110,7 @@ router.put("/:id", (req, res) => {
 
 // DELETE contact
 // delete post
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
     Contact.destroy({
       where: {
         id: req.params.id,

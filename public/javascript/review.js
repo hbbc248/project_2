@@ -58,12 +58,3 @@ async function reviewFormHandler (event) {
 }
 
 document.querySelector('#add-review').addEventListener('click', validation);
-
-
-
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})

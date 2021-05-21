@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Business, Review } = require("../../models");
 const sequelize = require('../../config/connection');
+const withAuth = require('../../utils/auth');
 
 
 // GET all Business including username of creator and reviews
@@ -75,7 +76,7 @@ router.get("/:id", (req, res) => {
 });
 
 // POST business
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
     Business.create({
       name: req.body.name,
       type: req.body.type,
@@ -95,7 +96,7 @@ router.post("/", (req, res) => {
 });
 
 // PUT business
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   Business.update(
     {
         name: req.body.name,
@@ -126,7 +127,7 @@ router.put("/:id", (req, res) => {
 });
 
 // DELETE business by id
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
     Business.destroy({
       where: {
         id: req.params.id,
