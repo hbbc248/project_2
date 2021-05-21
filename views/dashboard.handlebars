@@ -1,18 +1,30 @@
 <h1>Welcome</h1>
 
-<a href="/createpersonalcontact" class="btn btn-secondary btn-lg" type="button">Create Personal Contact</a>
-<a href="/createbusinesscontact" class="btn btn-secondary btn-lg" type="button" >Create Business Contact</a>
+<a href="/dashboard/createpersonalcontact" class="btn btn-secondary btn-lg" type="button">Create Personal Contact</a>
+<a href="/dashboard/createbusinesscontact" class="btn btn-secondary btn-lg" type="button" >Create Business Contact</a>
 
-<h2>Personal Contact Directory </h2>
 
-<div class="business-homepage-list">
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-        {{#each userData.contacts}}
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1"><i class="far fa-user"></i>{{contact.name}}</h5>
-        </div>
-        <p class="mb-1">{{contact.firts_name}}</p>
-        <small>{{contact.address}}</small>
-        {{/each}}
-    </a>
-</div>
+<div class="container"> 
+  <div class="row">
+    <h2>Business Contact Directory</h2>
+  </div>
+  
+  <div class="row gutters-sm align-items-center">
+  {{#each userData.businesses as |business|}}
+    {{>businesscontact business}}
+  {{/each}}
+  </div>
+
+  <div class="row">
+    <h2>Personal Contact Directory</h2>
+  </div>
+  
+  <div class="row gutters-sm align-items-center">
+  {{#each userData.contacts as |contact|}}
+    {{>personalcontact contact}}
+  {{/each}}
+  </div>
+   
+
+
+

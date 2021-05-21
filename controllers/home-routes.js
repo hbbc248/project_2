@@ -27,7 +27,6 @@ router.get('/', (req, res) => {
         ],
     }).then(dbBusinessData => {
         const businesses = dbBusinessData.map(business => business.get({ plain: true }));
-        console.log(businesses);
         res.render('homepage', {
             businesses,
             loggedIn: req.session.loggedIn

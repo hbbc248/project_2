@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { Business, Contact, Review, User } = require("../models");
+const session = require('express-session');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
@@ -38,15 +39,53 @@ router.get('/', withAuth, (req, res) => {
   })
   .then(dbUserData => {
     const userData = dbUserData.get({ plain: true });
+    console.log(userData);
     
     res.render('dashboard', 
-    { userData, loggedIn: true });
+    { userData, loggedIn: req.session.user_id });
   })
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
   });
-  });
+});
+
+router.get('/createpersonalcontact', (req, res) => {
+  console.log(req.session);
+  console.log('======================');
+  Contact.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+  })
+    .then(dbPersonalContactData => {
+      const personalContactCreate = dbPersonalContactData.map(post => post.get({ plain: true }));
+      res.render('createpersonalcontact', { personalContactCreate, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/createbusinesscontact', (req, res) => {
+  console.log(req.session);
+  console.log('======================');
+  Business.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+  })
+    .then(dbContactData => {
+      const businessContactCreate = dbContactData.map(post => post.get({ plain: true }));
+      res.render('createbusinesscontact', { businessContactCreate, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
   
 
   module.exports = router;
