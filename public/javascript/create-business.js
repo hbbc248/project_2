@@ -1,13 +1,13 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
-    const name = document.querySelector('input[name="business-name"]').value;
-    const type = document.querySelector('input[name="business-type"]').value;
-    const email = document.querySelector('input[name="business-email"]').value;
-    const phone = document.querySelector('input[name="business-phone"]').value;
-    const address = document.querySelector('input[name="business-address"]').value;
-    const webpage = document.querySelector('input[name="business-webpage"]').value;
-    const linkedin = document.querySelector('input[name="business-linkedin"]').value;
+    const name = document.querySelector('#name').value;
+    const type = document.querySelector('#type').value;
+    const email = document.querySelector('#email').value;
+    const phone = document.querySelector('#phone').value;
+    const address = document.querySelector('#address').value;
+    const webpage = document.querySelector('#webpage').value;
+    const linkedin = document.querySelector('#linkedin').value;
   
 
     const response = await fetch(`/api/business`, {
@@ -31,8 +31,14 @@ async function newFormHandler(event) {
     } else {
       alert(response.statusText);
     }
-  }
-  
-  document
-  .querySelector(".new-business-contact-form")
-  .addEventListener("submit", newFormHandler);
+}
+
+document.querySelector("#create").addEventListener("click", newFormHandler);
+
+// cancel button function
+function cancelHandler(event) {
+  event.preventDefault();
+    document.location.replace("/dashboard");      
+}
+
+document.querySelector("#cancel").addEventListener("click", cancelHandler);

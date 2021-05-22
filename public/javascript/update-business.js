@@ -65,7 +65,7 @@ document.querySelector("#delete").addEventListener("click", deleteHandler);
 
 
 
-// delete busciness contact function
+// cancel button function
 function cancelHandler(event) {
     event.preventDefault();
       document.location.replace("/dashboard");      

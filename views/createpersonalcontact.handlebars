@@ -1,46 +1,57 @@
-<section>
-    <h2>Create New Personal Contact</h2>
-
-    <form class="new-personal-contact-form">
-        <div>
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" />
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">Create New Personal Contact</h2>
+        </div> 
+  </div>
+    <form class="mt-3">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+        <label for="inputEmail4">First Name</label>
+        <input type="text" class="form-control" id="first-name" placeholder="Enter First Name">
         </div>
-        <div>
-            <label for="last-name">Last Name</label>
-            <input id="last-name" name="last-name" />
+        <div class="form-group col-md-4">
+        <label for="inputPassword4">Last Name</label>
+        <input type="text" class="form-control" id="last-name" placeholder="Enter Last Name">
         </div>
-        <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" />
+        <div class="form-group col-md-4">
+        <label for="inputPassword4">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Email">
         </div>
-        <div>
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" />
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="address" placeholder="Enter Addesss - 1234 Main St">
         </div>
-        <div>
-            <label for="address">Address</label>
-            <input id="address" name="address" />
+        <div class="form-group col-md-4">
+        <label for="inputPassword4">Phone Number</label>
+        <input type="text" class="form-control" id="phone" placeholder="Enter Phone #">
         </div>
-        <div>
-            <label for="instagram">Instagram</label>
-            <input id="instagram" name="instagram" />
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+        <label for="inputAddress">Instagram</label>
+        <input type="text" class="form-control" id="instagram" placeholder="Enter Instagram Link">
         </div>
-        <div>
-            <label for="facebook">Facebook</label>
-            <input id="facebook" name="facebook" />
+        <div class="form-group col-md-6">
+        <label for="inputPassword4">Facebook</label>
+        <input type="text" class="form-control" id="facebook" placeholder="Enter Facebook Link">
         </div>
-        <div>
-            <label for="tiktok">Tik Tok</label>
-            <input id="tiktok" name="tiktok" />
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+        <label for="inputAddress">Tiktok</label>
+        <input type="text" class="form-control" id="tiktok" placeholder="Enter Tiktok Link">
         </div>
-        <div>
-            <label for="youtube">Youtube</label>
-            <input id="youtube" name="youtube" />
+        <div class="form-group col-md-6">
+        <label for="inputPassword4">Youtube</label>
+        <input type="text" class="form-control" id="youtube" placeholder="Enter Youtube Link">
         </div>
-        </form>
-        </br>
-        <button type="submit" class="btn">Create</button>
+    </div>
+    
+    <button id="create" type="submit" class="btn btn-success">Create New Personal Contact</button>
+    <button id="cancel" type="submit" class="btn btn-primary">Cancel</button>
     </form>
-</section>
+</div>
 <script src="../javascript/create-contact.js"></script>

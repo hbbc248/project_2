@@ -2,15 +2,15 @@ async function newFormHandler(event) {
     event.preventDefault();
     console.log("works")
 
-    const first_name = document.querySelector('input[name="first-name"]').value;
-    const last_name = document.querySelector('input[name="last-name"]').value;
-    const email = document.querySelector('input[name="email"]').value;
-    const phone = document.querySelector('input[name="phone"]').value;
-    const address = document.querySelector('input[name="address"]').value;
-    const instagram = document.querySelector('input[name="instagram"]').value;
-    const facebook = document.querySelector('input[name="facebook"]').value;
-    const tiktok = document.querySelector('input[name="tiktok"]').value;
-    const youtube = document.querySelector('input[name="youtube"]').value;
+    const first_name = document.querySelector('#first-name').value;
+    const last_name = document.querySelector('#last-name').value;
+    const email = document.querySelector('#email').value;
+    const phone = document.querySelector('#phone').value;
+    const address = document.querySelector('#address').value;
+    const instagram = document.querySelector('#instagram').value;
+    const facebook = document.querySelector('#facebook').value;
+    const tiktok = document.querySelector('#tiktok').value;
+    const youtube = document.querySelector('#youtube').value;
 
     const response = await fetch(`/api/contacts`, {
       method: "POST",
@@ -37,6 +37,12 @@ async function newFormHandler(event) {
     }
   }
   
-  document
-  .querySelector(".btn")
-  .addEventListener("click", newFormHandler);
+document.querySelector("#create").addEventListener("click", newFormHandler);
+
+// cancel button function
+function cancelHandler(event) {
+  event.preventDefault();
+    document.location.replace("/dashboard");      
+}
+
+document.querySelector("#cancel").addEventListener("click", cancelHandler);
