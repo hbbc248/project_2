@@ -137,8 +137,44 @@ router.get('/edit-bussiness/:id', (req, res) => {
   });
 });
 
+router.get('/edit-contact/:id', (req, res) => {
+  console.log(req.session);
+  console.log('======================');
+  Contact.findOne({
+      where: {
+        [Op.and]: [
+          { id: req.params.id },
+          { user_id: req.session.user_id }
+        ] 
+      },
+      attributes: ["id", "first_name", "last_name", "email", "phone", "address", "instagram", "facebook", "tiktok", "youtube","user_id",
+      ],
+      order: ["first_name"],
+      include: [
+      // include the  model here:
+      {
+          model: User,
+          attributes: ["username"],
+      },
+      ],
+  })
+  .then(dbContactData => {
+    if (!dbContactData) {
+      res.status(404).json({ message: "Contact does not belong to the user signed in" });
+      return;
+    }
+    const contactData = dbContactData.get({ plain: true });
 
-
+    console.log(contactData);
+    
+    res.render('contact-update', 
+    { contactData, loggedIn: req.session.user_id });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
   
 
 module.exports = router;
