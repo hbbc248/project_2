@@ -58,3 +58,12 @@ async function reviewFormHandler (event) {
 }
 
 document.querySelector('#add-review').addEventListener('click', validation);
+
+// cancel button function
+function cancelHandler(event) {
+  event.preventDefault();
+    window.history.back();
+    // document.location.replace("/dashboard");      
+}
+
+document.querySelector("#cancel").addEventListener("click", cancelHandler);

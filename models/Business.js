@@ -23,7 +23,6 @@ Business.init(
         email: {
             type: DataTypes.STRING(50),
             allowNull: true,
-            unique: true,
             validate: {
               isEmail: true,
             },

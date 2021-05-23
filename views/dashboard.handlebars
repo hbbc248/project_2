@@ -12,7 +12,9 @@
   </div>
 </div>
 
+
 <div class="container"> 
+  {{#if userData.businesses}}
   <div class="row">
     <div class="col-12">
       <h2 class="text-center">Business Contact Directory</h2>
@@ -24,7 +26,9 @@
     {{>businesscontact business}}
   {{/each}}
   </div>
+  {{/if}}
 
+  {{#if userData.contacts}}
   <div class="row">
     <div class="col-12">
       <h2 class="text-center">Personal Contact Directory</h2>
@@ -35,7 +39,9 @@
   {{#each userData.contacts as |contact|}}
     {{>personalcontact contact}}
   {{/each}}
+  {{/if}}
   </div>
+  
    
 
 
