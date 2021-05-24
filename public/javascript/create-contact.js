@@ -14,8 +14,7 @@ async function newFormHandler(event) {
     const tiktok = document.querySelector('#tiktok').value;
     const youtube = document.querySelector('#youtube').value;
 
-    console.log(validate.isEmail(email))
-
+    
     const response = await fetch(`/api/contacts`, {
       method: "POST",
       body: JSON.stringify({
