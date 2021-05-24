@@ -3,10 +3,6 @@
 async function validation (event) {
     event.preventDefault();
 
-    var cookies = document.cookie;
-    console.log(cookies);
-
-
     const business_id = window.location.toString().split("/")[
         window.location.toString().split("/").length - 1
     ];
@@ -14,7 +10,6 @@ async function validation (event) {
       const data = await response.json();
       const user_id = parseInt(document.querySelector('#user').textContent);
       if (data.reviews.length > 0) {
-        console.log("si hay");
         const old_reviews = data.reviews.filter(review => review.user_id === user_id);
         if (old_reviews) {
           const last_review_date = new Date(old_reviews[0].created_at);
