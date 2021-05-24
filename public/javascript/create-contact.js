@@ -1,3 +1,5 @@
+
+
 async function newFormHandler(event) {
     event.preventDefault();
     console.log("works")
@@ -11,6 +13,8 @@ async function newFormHandler(event) {
     const facebook = document.querySelector('#facebook').value;
     const tiktok = document.querySelector('#tiktok').value;
     const youtube = document.querySelector('#youtube').value;
+
+    console.log(validate.isEmail(email))
 
     const response = await fetch(`/api/contacts`, {
       method: "POST",

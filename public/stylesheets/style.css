@@ -64,24 +64,23 @@ body{
 .topnav {
     background-color: transparent;
     overflow: hidden;
-    margin-right: 20px; 
+    list-style-type: none;
+    
   }
   
   /* Style the links inside the navigation bar */
   .topnav a {
-    float: right;
-    position: relative;
     color: black;
-    text-align: center;
     font-size: 17px;
-    top: 120px;
     width: 15%; 
     font-family: 'Tenor Sans', sans-serif;
+    float: right; 
+    display: inline, 
   }
   
   /* Change the color of links on hover */
   .topnav a:hover {
-    background-color: white;
+    background-color: white; 
     color:turquoise;
   }
 
@@ -111,4 +110,9 @@ margin-left: 20px;
     font-family: 'Tenor Sans', sans-serif;
     margin-left: 45%;
     margin-right:50%;
+}
+
+.navbar-nav .nav-link {
+    margin-right: 25px;
+    margin-left: 25px;
 }
