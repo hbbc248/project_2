@@ -14,7 +14,7 @@ async function validation (event) {
         if (old_reviews) {
           const last_review_date = new Date(old_reviews[0].created_at);
           const days = Math.floor([new Date().getTime() - last_review_date.getTime()]/(1000*3600*24));
-          if (days > -29) {
+          if (days > 29) {
             return reviewFormHandler(data);
           }
           else {
