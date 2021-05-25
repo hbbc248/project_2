@@ -7,8 +7,6 @@ const session = require('express-session');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-    console.log(req.session);
-    console.log('======================');
     User.findOne({
     attributes: { exclude: ["password"] },
     where: {
@@ -49,9 +47,7 @@ router.get('/', withAuth, (req, res) => {
   });
 });
 
-router.get('/createpersonalcontact', (req, res) => {
-  console.log(req.session);
-  console.log('======================');
+router.get('/createpersonalcontact', withAuth, (req, res) => {
   Contact.findAll({
     where: {
       user_id: req.session.user_id
@@ -67,7 +63,7 @@ router.get('/createpersonalcontact', (req, res) => {
     });
 });
 
-router.get('/createbusinesscontact', (req, res) => {
+router.get('/createbusinesscontact', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
   Business.findAll({
@@ -86,7 +82,7 @@ router.get('/createbusinesscontact', (req, res) => {
 });
 
 
-router.get('/edit-bussiness/:id', (req, res) => {
+router.get('/edit-bussiness/:id', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
   Business.findOne({
@@ -137,7 +133,7 @@ router.get('/edit-bussiness/:id', (req, res) => {
   });
 });
 
-router.get('/edit-contact/:id', (req, res) => {
+router.get('/edit-contact/:id', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
   Contact.findOne({
