@@ -15,7 +15,7 @@ async function validation (event) {
           const last_review_date = new Date(old_reviews[0].created_at);
           const days = Math.floor([new Date().getTime() - last_review_date.getTime()]/(1000*3600*24));
           if (days > 29) {
-            return reviewFormHandler();
+            return reviewFormHandler(data);
           }
           else {
             window.alert("You alredy submited a review for this Business within the last 30 days. Please wait at least 30 days to submit a new review");
@@ -23,16 +23,18 @@ async function validation (event) {
           }       
         }
       }
-      return reviewFormHandler(); 
+      return reviewFormHandler(data); 
 }
 
-async function reviewFormHandler (event) {
+async function reviewFormHandler (data) {
 
   const star_rating = document.querySelector('#star-rating').value.trim();
   const review_text = document.querySelector('#review-text').value.trim();
   const business_id = window.location.toString().split("/")[
       window.location.toString().split("/").length - 1
   ];
+  const email = data.email;
+  const name = data.name;
   if (star_rating && review_text) {
     const response = await fetch('/api/reviews', {
       method: 'post',
@@ -45,6 +47,20 @@ async function reviewFormHandler (event) {
     });
 
     if (response.ok) {
+      // send email to business owner
+      const response = fetch(`/reviews/email`, {
+        method: "POST",
+        body: JSON.stringify({
+          star_rating,
+          review_text,
+          email,
+          name
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       document.location.reload();
     } else {
       alert(response.statusText);
@@ -53,6 +69,12 @@ async function reviewFormHandler (event) {
 }
 
 document.querySelector('#add-review').addEventListener('click', validation);
+
+
+
+
+
+
 
 // cancel button function
 function cancelHandler(event) {
