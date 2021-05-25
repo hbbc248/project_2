@@ -2,21 +2,30 @@
 * {
     margin: 0;
     padding: 0;
-
+ 
 }
 
 <!--Style for business contacts>
+#grad {
+    background-image: url('newimage.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-size: cover
+}
+
 
 body{
-    margin-top:20px;
     text-align: center;
-    background-image: url('background.jpg');
     overflow-x: hidden;
-
+    background-image: url('newimage.jpg');
+    width: 100%; 
+    background-size: cover;
 }
 .main-body {
     padding: 15px;
-
 }
 .card {
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
@@ -63,31 +72,6 @@ body{
     box-shadow: none!important;
 }
 
-/* Add a black background color to the top navigation */
-.topnav {
-    background-color: transparent;
-    overflow: hidden;
-    list-style-type: none;
-    
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    color: black;
-    font-size: 17px;
-    width: 15%; 
-    font-family: 'Tenor Sans', sans-serif;
-    float: right; 
-    display: inline, 
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: white; 
-    color:turquoise;
-  }
-
-
 body h2 {
 font-family: 'Tenor Sans', sans-serif;
 margin-left: 10px; 
@@ -130,3 +114,23 @@ input {
     font-family: 'Tenor Sans', sans-serif;
     size: 12px;
 }
+
+#logout {
+  cursor: pointer; 
+}
+
+footer {
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+header {
+    z-index: 9999;
+    top: 0; 
+}
+
+.navbar {
+    position: static;
+  }
+  .navbar .nav > li {
+    z-index: 1001;
+  }
