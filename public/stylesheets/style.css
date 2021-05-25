@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+
 }
 
 <!--Style for business contacts>
@@ -11,9 +11,12 @@ body{
     margin-top:20px;
     text-align: center;
     background-image: url('background.jpg');
+    overflow-x: hidden;
+
 }
 .main-body {
     padding: 15px;
+
 }
 .card {
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
@@ -85,12 +88,12 @@ body{
   }
 
 .logo {
-    margin-left: 20px; 
+
 }
 
 body h2 {
 font-family: 'Tenor Sans', sans-serif;
-margin-left: 20px; 
+margin-left: 10px; 
 }
 
 body h1{
@@ -119,4 +122,14 @@ body h1{
 .navbar-nav .nav-link {
     margin-right: 25px;
     margin-left: 25px;
+}
+
+p {
+    font-family: 'Tenor Sans', sans-serif;
+    size: 12px;
+}
+
+input {
+    font-family: 'Tenor Sans', sans-serif;
+    size: 12px;
 }
