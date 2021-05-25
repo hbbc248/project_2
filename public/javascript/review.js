@@ -11,7 +11,7 @@ async function validation (event) {
       const user_id = parseInt(document.querySelector('#user').textContent);
       if (data.reviews.length > 0) {
         const old_reviews = data.reviews.filter(review => review.user_id === user_id);
-        if (old_reviews) {
+        if (old_reviews.length > 0) {
           const last_review_date = new Date(old_reviews[0].created_at);
           const days = Math.floor([new Date().getTime() - last_review_date.getTime()]/(1000*3600*24));
           if (days > 29) {
