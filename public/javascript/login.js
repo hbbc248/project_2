@@ -2,7 +2,17 @@ async function loginFormHandler(event) {
     event.preventDefault();
   
     const input = document.querySelector('#input').value.trim();
+    if (!input) {
+      document.querySelector('#Title').textContent = "Error logging in";
+      document.querySelector('#modal-text').textContent = "Please enter your username or email.";
+      $('#myModal').modal()
+    }
     const password = document.querySelector('#password-login').value.trim();
+    if (!password) {
+      document.querySelector('#Title').textContent = "Error logging in";
+      document.querySelector('#modal-text').textContent = "Please enter your password.";
+      $('#myModal').modal()
+    }
   
     if (input && password) {
       const response = await fetch('/api/users/login', {

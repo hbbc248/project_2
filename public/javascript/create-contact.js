@@ -5,27 +5,37 @@ async function newFormHandler(event) {
 
     const first_name = document.querySelector('#first-name').value;
       if (!string30Val(first_name)) {
-        window.alert("You entered an invalid first name please try again.");
+        document.querySelector('#Title').textContent = "Data input error";
+        document.querySelector('#modal-text').textContent = "You entered an invalid first name please try again.";
+        $('#myModal').modal()
         return false;
       }
     const last_name = document.querySelector('#last-name').value;
     if (!string30Val(last_name)) {
-      window.alert("You entered an invalid last name please try again.");
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "You entered an invalid last name please try again.";
+      $('#myModal').modal()
       return false;
     }
     const email = document.querySelector('#email').value;
-      if (!emailVal(email)) {
-        window.alert("You entered an invalid email please try again.");
-        return false;
+    if (!emailVal(email)) {
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "You entered an invalid email please try again.";
+      $('#myModal').modal()
+      return false;
       }
     const phone = document.querySelector('#phone').value;
-      if (!phoneVal(phone)) {
-        window.alert("You entered an invalid phone number please try again. Valid format 555-555-5555.");
-        return false;
+    if (!phoneVal(phone)) {
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "You entered an invalid phone number please try again. Valid format 555-555-5555.";
+      $('#myModal').modal()
+      return false;
       }
     const address = document.querySelector('#address').value;
     if (!stringVal(address)) {
-      window.alert("Address field can't be empty. Please enter a valid address.");
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "Address field can't be empty. Please enter a valid address.";
+      $('#myModal').modal()
       return false;
     }
     const instagram = document.querySelector('#instagram').value;
@@ -55,9 +65,19 @@ async function newFormHandler(event) {
     if (response.ok) {
       document.location.replace("/dashboard");
     } else {
-      alert(response.statusText);
+      const data = await response.json();
+      if (data.errors[0].message === "Validation isEmail on email failed") {
+      document.querySelector('#Title').textContent = "Server error";
+      document.querySelector('#modal-text').textContent = "Server email validation failed. Please enter a valid email";
+      $('#myModal').modal()
+      return
+      } else {
+        document.querySelector('#Title').textContent = "Server error";
+        document.querySelector('#modal-text').textContent = response.statusText;
+        $('#myModal').modal()
+      }
     }
-  }
+}
   
 document.querySelector("#create").addEventListener("click", newFormHandler);
 

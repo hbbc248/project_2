@@ -1,6 +1,7 @@
 import {string30Val, phoneVal, emailVal, stringVal} from './validators.js';
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
-// update business contact function
+// update personal contact function
 async function updateFormHandler(event) {
     event.preventDefault();
 
@@ -8,31 +9,38 @@ async function updateFormHandler(event) {
         window.location.toString().split("/").length - 1
     ];
     const first_name = document.querySelector('#first-name').value;
-    if (!string30Val(first_name)) {
-      window.alert("You entered an invalid first name please try again.");
-      return false;
-    }
-
+      if (!string30Val(first_name)) {
+        document.querySelector('#Title').textContent = "Data input error";
+        document.querySelector('#modal-text').textContent = "You entered an invalid first name please try again.";
+        $('#myModal').modal()
+        return false;
+      }
     const last_name = document.querySelector('#last-name').value;
     if (!string30Val(last_name)) {
-      window.alert("You entered an invalid last name please try again.");
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "You entered an invalid last name please try again.";
+      $('#myModal').modal()
       return false;
     }
-
     const email = document.querySelector('#email').value;
     if (!emailVal(email)) {
-      window.alert("You entered an invalid email please try again.");
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "You entered an invalid email please try again.";
+      $('#myModal').modal()
       return false;
-    }
+      }
     const phone = document.querySelector('#phone').value;
     if (!phoneVal(phone)) {
-      window.alert("You entered an invalid phone number please try again. Valid format 555-555-5555.");
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "You entered an invalid phone number please try again. Valid format 555-555-5555.";
+      $('#myModal').modal()
       return false;
-    }
-
+      }
     const address = document.querySelector('#address').value;
     if (!stringVal(address)) {
-      window.alert("Address field can't be empty. Please enter a valid address.");
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "Address field can't be empty. Please enter a valid address.";
+      $('#myModal').modal()
       return false;
     }
     const instagram = document.querySelector('#instagram').value;
@@ -58,10 +66,23 @@ async function updateFormHandler(event) {
       },
     });
     if (response.ok) {
-        window.alert("Contact Data has been updated!");
+      document.querySelector('#Title').textContent = "Success!";
+      document.querySelector('#modal-text').textContent = "Contact has been updated.";
+      $('#myModal').modal()
+      await delay(1500);
       document.location.replace("/dashboard");
     } else {
-      alert(response.statusText);
+      const data = await response.json();
+      if (data.errors[0].message === "Validation isEmail on email failed") {
+      document.querySelector('#Title').textContent = "Server error";
+      document.querySelector('#modal-text').textContent = "Server email validation failed. Please enter a valid email";
+      $('#myModal').modal()
+      return
+      } else {
+        document.querySelector('#Title').textContent = "Server error";
+        document.querySelector('#modal-text').textContent = response.statusText;
+        $('#myModal').modal()
+      }
     } 
 }
 
@@ -83,10 +104,15 @@ async function deleteHandler(event) {
     });
   
     if (response.ok) {
-        window.alert("Contact has been deleted!");
+      document.querySelector('#Title').textContent = "Success!";
+      document.querySelector('#modal-text').textContent = "Contact has been deleted.";
+      $('#myModal').modal()
+      await delay(1500);
       document.location.replace("/dashboard");
     } else {
-      alert(response.statusText);
+      document.querySelector('#Title').textContent = "Server error";
+      document.querySelector('#modal-text').textContent = response.statusText;
+      $('#myModal').modal()
     }   
 }
 
