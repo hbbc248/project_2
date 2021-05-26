@@ -1,15 +1,24 @@
-<form class="login-form">
-  <div>
-     <img class="userimage" src="/stylesheets/userimage.png" alt="Userimage" width="300"
-         height="80">
-    <label for="email or user id">Email or User Id:</label>
-    <input type="text" id="input" />
+<form class="container login-form"> 
+  <div class="form-row justify-content-center">
+     <img class="userimage" src="/stylesheets/userimage.png" alt="Userimage" width="200">  
   </div>
-  <div>
+  <div class="form-row row justify-content-center">
+  <label for="email or user id">Email or User Id:</label>
+  </div>
+  <div class="form-row justify-content-center">
+    <div class="col-md-2">
+      <input type="text" class="form-control" id="input"/>
+    </div>
+  </div>
+  <div class="form-row justify-content-center mt-1">
     <label for="password-login">Password:</label>
-    <input type="password" id="password-login" />
   </div>
-  <div>
+<div class="form-row justify-content-center">
+  <div class="col-md-2">
+    <input type="password" class="form-control" id="password-login" />
+  </div>
+</div>
+  <div class="form-row justify-content-center mt-2">
     <button type="submit" class="btn btn-success">Login</button>
   </div>
   <div class="p-2">

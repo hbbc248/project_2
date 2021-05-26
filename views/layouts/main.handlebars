@@ -4,29 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Call Me Maybe?</title>
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
-    rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-
+  <title>Call Me Maybe?</title>  
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Tenor+Sans&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <header>
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white" >
-  <a class="navbar-brand" href="/"> <img class="logo" src="/stylesheets/Gray Cardiology Logo (2).png" alt="CallMeMaybe" width="300" height="80"></a>
+  <a class="navbar-brand" href="/"> <img class="logo" src="/stylesheets/Gray Cardiology Logo (2).png" alt="CallMeMaybe" height="150"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto" >
-      <a class="nav-item nav-link ml-3 h4" href="/">Home</a>
+      <a class="nav-item nav-link h4" href="/">Home</a>
         {{#if loggedIn}}
-      <a class="nav-item nav-link  ml-3 h4" href="/dashboard">Dashboard</a>
-      <a class="nav-item nav-link  ml-3 h4" id="logout">Log Out</a>
+      <a class="nav-item nav-link h4" href="/dashboard">Dashboard</a>
+      <a class="nav-item nav-link h4" id="logout">Log Out</a>
        {{else}}
-      <a class="nav-item nav-link  ml-3 h4" href="/login">Log In / Sign Up</a>
+      <a class="nav-item nav-link h4" href="/login">Log In / Sign Up</a>
        {{/if}}
     </div>
   </div>
@@ -34,12 +33,16 @@
 </header>
 
 <body>
+  </br>
   {{{body}}}
 
 
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 </body>
 <!-- Footer -->
@@ -53,6 +56,7 @@
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
+          </br>
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3"></i>Call Me Maybe
           </h6>
@@ -66,6 +70,7 @@
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
+          </br>
           <h6 class="text-uppercase fw-bold mb-4">
             Contact
           </h6>

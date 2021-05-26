@@ -89,15 +89,11 @@ body h1{
 .login-form {
     display: inline-block;
     font-family: 'Tenor Sans', sans-serif;
-    margin-left: 45%;
-    margin-right:50%;
 }
 
 .signup-form {
     display: inline-block;
     font-family: 'Tenor Sans', sans-serif;
-    margin-left: 45%;
-    margin-right:50%;
 }
 
 .navbar-nav .nav-link {
