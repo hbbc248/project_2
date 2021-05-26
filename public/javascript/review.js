@@ -18,7 +18,7 @@ async function validation (event) {
             return reviewFormHandler(data);
           }
           else {
-            window.alert("You alredy submited a review for this Business within the last 30 days. Please wait at least 30 days to submit a new review");
+            window.alert("You already submitted a review for this Business within the last 30 days. Please wait at least 30 days to submit a new review");
             return;
           }       
         }
@@ -29,6 +29,7 @@ async function validation (event) {
 async function reviewFormHandler (data) {
 
   const star_rating = document.querySelector('#star-rating').value.trim();
+  
   const review_text = document.querySelector('#review-text').value.trim();
   const business_id = window.location.toString().split("/")[
       window.location.toString().split("/").length - 1
