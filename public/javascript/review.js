@@ -1,4 +1,4 @@
-
+import {stringVal, starVal} from './validators.js';
 
 async function validation (event) {
     event.preventDefault();
@@ -29,8 +29,16 @@ async function validation (event) {
 async function reviewFormHandler (data) {
 
   const star_rating = document.querySelector('#star-rating').value.trim();
-  
+  if (!starVal(star_rating)) {
+    window.alert("Please assign a rating to your review.");
+    return false;
+  }
+
   const review_text = document.querySelector('#review-text').value.trim();
+  if (!stringVal(review_text)) {
+    window.alert("Please leave a review comment.");
+    return false;
+  }
   const business_id = window.location.toString().split("/")[
       window.location.toString().split("/").length - 1
   ];
