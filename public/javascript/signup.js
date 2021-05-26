@@ -35,7 +35,16 @@ async function signupFormHandler(event) {
       if (response.ok) {
         document.location.replace('/dashboard/');
       } else {
-        alert(response.statusText);
+        const data = await response.json();
+        if (data.errors[0].message === "user.email must be unique") {
+        window.alert("There is already a registered user using email " + data.errors[0].value + ". Please enter a diferrent email.");
+        return
+        }
+
+        if (data.errors[0].message === "user.username must be unique") {
+          window.alert("There is already a registered user with username " + data.errors[0].value + ". Please enter a diferrent user name.");
+        return
+        }
       }
     }
   }

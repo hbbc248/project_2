@@ -79,8 +79,10 @@ router.post("/", (req, res) => {
         req.session.loggedIn = true;
   
         res.json(dbUserData);
-        timeout();
       });
+    })
+    .catch((err) => {
+      res.status(500).json(err);
     });
 });
 
@@ -92,7 +94,7 @@ router.post('/login', (req, res) => {
     }
   }).then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No registered user found with that email or username address!' });
+      res.status(400).json({ message: 'No registered user found with that username or email address!' });
       return;
     }
     const validPassword = dbUserData.checkPassword(req.body.password);
