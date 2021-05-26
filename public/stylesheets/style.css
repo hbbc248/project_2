@@ -101,12 +101,7 @@ body h1{
     margin-left: 25px;
 }
 
-p {
-    font-family: 'Tenor Sans', sans-serif;
-    size: 12px;
-}
-
-input {
+label p input {
     font-family: 'Tenor Sans', sans-serif;
     size: 12px;
 }

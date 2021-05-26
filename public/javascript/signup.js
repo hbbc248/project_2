@@ -5,19 +5,25 @@ async function signupFormHandler(event) {
   
     const username = document.querySelector('#username-signup').value.trim();
     if (!string20Val(username)) {
-      window.alert("Please enter a user name.");
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "Please enter a user name";
+      $('#myModal').modal()
       return false;
     }
 
     const email = document.querySelector('#email-signup').value.trim();
     if (!emailVal(email)) {
-      window.alert("You entered an invalid email please try again.");
+      document.querySelector('#Title').textContent = "Data input error";
+      document.querySelector('#modal-text').textContent = "You entered an invalid email please try again.";
+      $('#myModal').modal()
       return false;
     }
 
     const password = document.querySelector('#password-signup').value.trim();
     if (!passwordVal(password)) {
-        window.alert("Please enter a password within 6 & 16 characters.");
+        document.querySelector('#Title').textContent = "Data input error";
+        document.querySelector('#modal-text').textContent = "Invalid password. Please enter a password between 6 & 16 characters.";
+        $('#myModal').modal()
         return false;
       }
       
@@ -37,12 +43,16 @@ async function signupFormHandler(event) {
       } else {
         const data = await response.json();
         if (data.errors[0].message === "user.email must be unique") {
-        window.alert("There is already a registered user using email " + data.errors[0].value + ". Please enter a diferrent email.");
+        document.querySelector('#Title').textContent = "Error signing up";
+        document.querySelector('#modal-text').textContent = "There is already a registered user using email " + data.errors[0].value + ". Please enter a diferrent email.";
+        $('#myModal').modal()
         return
         }
 
         if (data.errors[0].message === "user.username must be unique") {
-          window.alert("There is already a registered user with username " + data.errors[0].value + ". Please enter a diferrent user name.");
+          document.querySelector('#Title').textContent = "Error signing up";
+          document.querySelector('#modal-text').textContent = "There is already a registered user with username " + data.errors[0].value + ". Please enter a diferrent user name.";
+          $('#myModal').modal()
         return
         }
       }

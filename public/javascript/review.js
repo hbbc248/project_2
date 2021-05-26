@@ -18,7 +18,9 @@ async function validation (event) {
             return reviewFormHandler(data);
           }
           else {
-            window.alert("You already submitted a review for this Business within the last 30 days. Please wait at least 30 days to submit a new review");
+            document.querySelector('#Title').textContent = "Review input error";
+            document.querySelector('#modal-text').textContent = "You already submitted a review for this Business within the last 30 days. Please wait at least 30 days to submit a new review.";
+            $('#myModal').modal()
             return;
           }       
         }
@@ -30,13 +32,17 @@ async function reviewFormHandler (data) {
 
   const star_rating = document.querySelector('#star-rating').value.trim();
   if (!starVal(star_rating)) {
-    window.alert("Please assign a rating to your review.");
+    document.querySelector('#Title').textContent = "Review input error";
+    document.querySelector('#modal-text').textContent = "Please assign a rating to your review.";
+    $('#myModal').modal()
     return false;
   }
 
   const review_text = document.querySelector('#review-text').value.trim();
   if (!stringVal(review_text)) {
-    window.alert("Please leave a review comment.");
+    document.querySelector('#Title').textContent = "Review input error";
+    document.querySelector('#modal-text').textContent = "Please leave a review comment.";
+    $('#myModal').modal()
     return false;
   }
   const business_id = window.location.toString().split("/")[

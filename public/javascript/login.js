@@ -18,7 +18,9 @@ async function loginFormHandler(event) {
         document.location.replace('/dashboard/');
       } else {
         const data = await response.json();
-        window.alert(data.message);
+        document.querySelector('#Title').textContent = "Error logging in";
+        document.querySelector('#modal-text').textContent = data.message;
+        $('#myModal').modal()
       }
     }
   }
