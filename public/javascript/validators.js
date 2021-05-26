@@ -34,6 +34,17 @@ function starVal (input){
     } else return false;
 }
 
+function string20Val (input) {
+    if ((input.length > 0) && (input.length <21)) {
+        return true;
+    } else return false;
+}
 
-export {string30Val, phoneVal, emailVal, stringVal, starVal}
+function passwordVal (input) {
+    if ((input.length > 5) && (input.length <17)) {
+        return true;
+    } else return false;
+}
+
+export {string30Val, phoneVal, emailVal, stringVal, starVal, string20Val, passwordVal}
 
