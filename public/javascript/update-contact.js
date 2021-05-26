@@ -1,3 +1,5 @@
+import {string30Val, phoneVal, emailVal, stringVal} from './validators.js';
+
 // update business contact function
 async function updateFormHandler(event) {
     event.preventDefault();
@@ -6,10 +8,33 @@ async function updateFormHandler(event) {
         window.location.toString().split("/").length - 1
     ];
     const first_name = document.querySelector('#first-name').value;
+    if (!string30Val(first_name)) {
+      window.alert("You entered an invalid first name please try again.");
+      return false;
+    }
+
     const last_name = document.querySelector('#last-name').value;
+    if (!string30Val(last_name)) {
+      window.alert("You entered an invalid last name please try again.");
+      return false;
+    }
+
     const email = document.querySelector('#email').value;
+    if (!emailVal(email)) {
+      window.alert("You entered an invalid email please try again.");
+      return false;
+    }
     const phone = document.querySelector('#phone').value;
+    if (!phoneVal(phone)) {
+      window.alert("You entered an invalid phone number please try again. Valid format 555-555-5555.");
+      return false;
+    }
+
     const address = document.querySelector('#address').value;
+    if (!stringVal(address)) {
+      window.alert("Address field can't be empty. Please enter a valid address.");
+      return false;
+    }
     const instagram = document.querySelector('#instagram').value;
     const facebook = document.querySelector('#facebook').value;
     const tiktok = document.querySelector('#tiktok').value;
