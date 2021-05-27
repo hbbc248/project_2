@@ -23,6 +23,6 @@
 
 
 ## Video and Link to Deployed Site
-* <a href="https://call-me-maybe-gp2.herokuapp.com/" rel="nofollow">https://call-me-maybe-gp2.herokuapp.com//</a>
+* <a href="https://call-me-maybe-gp2.herokuapp.com/" rel="nofollow">https://call-me-maybe-gp2.herokuapp.com/</a>
 * <img src="" alt="gif of how to use">
 
