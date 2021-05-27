@@ -22,6 +22,6 @@
 * Cooper Cutbirth
 
 
-## Video and Link to Deployed Site
+## Link to Deployed Site and Image
 * <a href="https://call-me-maybe-gp2.herokuapp.com/" rel="nofollow">https://call-me-maybe-gp2.herokuapp.com/</a>
-
+<img src= "" alt = "screenshot of website">
