@@ -69,7 +69,7 @@ var mailOptions = {
     subject: 'Call Me Maybe! - new review for you business.', // Subject line
     html: `<b>Call me Maybe - Business Review</b><br><br> A new review for <b>${req.body.name}</b> has been posted in Call Me Maybe!<br>
           Review star rating: ${req.body.star_rating}.<br>Review comment: ${req.body.review_text}<br><br>
-          For more information log in to your Call Me Maybe account.https://call-me-maybe-gp2.herokuapp.com/`
+          For more information log in to your Call Me Maybe account. https://call-me-maybe-gp2.herokuapp.com/`
 };
 
 // send mail with defined transport object
