@@ -62,9 +62,9 @@ async function updateFormHandler(event) {
       },
     });
     if (response.ok) {
-      document.querySelector('#Title').textContent = "Success!";
-      document.querySelector('#modal-text').textContent = "Business Data has been updated.";
-      $('#myModal').modal()
+      document.querySelector('#Title2').textContent = "Success!";
+      document.querySelector('#modal-text2').textContent = "Business Data has been updated.";
+      $('#myModalUpdate').modal()
       await delay(1500);
       document.location.replace("/dashboard");
     } else {
@@ -100,9 +100,9 @@ async function deleteHandler(event) {
     });
   
     if (response.ok) {
-      document.querySelector('#Title').textContent = "Success!";
-      document.querySelector('#modal-text').textContent = "Business has been deleted.";
-      $('#myModal').modal()
+      document.querySelector('#Title2').textContent = "Success!";
+      document.querySelector('#modal-text2').textContent = "Business has been deleted.";
+      $('#myModalUpdate').modal()
       await delay(1500);
       document.location.replace("/dashboard");
     } else {
