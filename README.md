@@ -1,27 +1,36 @@
 # Call Me Maybe
 
 #### Table of Contents
-1. [Project Description](#project-description)
-2. [Installation](#install)
-3. [Usage](#usage)
-4. [Contribution Guide](#contributions)
+* [App-Screenshot](#App-Screenshot)
+* [Project Description](#Project-Description)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Contributors](#Contributors)
 
-## Project Description 🔍
-* This project is a public phonebook with extra contact information such as social media.
+ ## App-Screenshot
 
-## Installation 💾
+  ![Call Me Maybe](./public/src/images/call-me-maybe.png)
+
+## Project-Description
+
+Our team wanted to store all of our personal contacts information, advertise businesses, and a place for the public to leave reviews and ratings to the businesses we all interact with regularly. Our phonebook application will allow you to store your contacts, and it will enable your business to be visible to the public. You will receive email notifications for the reviews and ratings of your business. 
+
+## Installation
 * No installation needed.
 
-## Usage Info 💻
+## Usage
 * Allows for users to view and post public contact information for businesses as well as create private contact informations for individuals.
 
-## Contributors 👪
+## Contributors
 * Ibrahim Zerlin
 * Pilar Buchen
 * Sharee Osborn
 * Cooper Cutbirth
 
 
-## Link to Deployed Site and Image
-* <a href="https://call-me-maybe-gp2.herokuapp.com/" rel="nofollow">https://call-me-maybe-gp2.herokuapp.com/</a>
-<img src= "" alt = "screenshot of website">
+## Link to Deployed Site
+
+Please visit our page: https://call-me-maybe-gp2.herokuapp.com/
+
+
+
